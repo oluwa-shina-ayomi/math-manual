@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Manual Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8fdfc;
+            margin: 0;
+            padding: 0;
+            color: #00332b;
+        }
+
+        header {
+            background-color: teal;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 1rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        th {
+            background-color: #008080;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1fdfb;
+        }
+
+        a.receipt-link {
+            color: teal;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a.receipt-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            th {
+                display: none;
+            }
+
+            td {
+                border: none;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #eaeaea;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                display: block;
+                color: #004d40;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>📘 Mathematics Manual Dashboard</header>
+
+    <div class="container">
+        {% if data %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Matric Number</th>
+                        <th>Receipt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for name, matric, receipt_path in data %}
+                    <tr>
+                        <td data-label="Full Name">{{ name }}</td>
+                        <td data-label="Matric Number">{{ matric }}</td>
+                        <td data-label="Receipt">
+                            <a href="{{ url_for('static', filename=receipt_path.split('static/')[-1]) }}" class="receipt-link" target="_blank">View</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No submissions yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

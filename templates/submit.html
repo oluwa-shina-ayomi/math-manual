@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Receipt - Math Manual</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Mathematics Manual Payment</h1>
+    <p class="subtext">Fill in your details and upload your payment receipt below.</p>
+
+    <form action="/submit" method="POST" enctype="multipart/form-data" class="upload-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="First name Last name" required>
+
+      <label for="matric">Matric Number</label>
+      <input type="text" id="matric" name="matric" placeholder="e.g. XXXXXXX" required>
+
+      <label for="receipt">Upload Receipt</label>
+      <input type="file" id="receipt" name="receipt" accept="image/*" required>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <footer>
+      <p>Dept. of Computer Engineering</p>
+      <p>built with love - adebayo abdulrahmon</p>
+    </footer>
+  </div>
+</body>
+</html>

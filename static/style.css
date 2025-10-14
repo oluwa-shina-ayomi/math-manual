@@ -1,0 +1,101 @@
+/* General page setup */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8faf9; /* off-white background */
+  margin: 0;
+  padding: 0;
+  color: #033e3e; /* deep teal text */
+}
+
+/* Container */
+.container {
+  max-width: 400px;
+  margin: 30px auto;
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  color: teal;
+  margin-bottom: 5px;
+}
+
+.subtext {
+  text-align: center;
+  color: #555;
+  font-size: 0.9em;
+  margin-bottom: 25px;
+}
+
+/* Form styling */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #045c5c;
+}
+
+input[type="text"],
+input[type="file"] {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1.5px solid #cce3e3;
+  border-radius: 8px;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+  border-color: teal;
+}
+
+/* Submit button */
+button {
+  background-color: teal;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #007777;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.85em;
+  color: #666;
+}
+
+/* 📱 Mobile responsiveness */
+@media (max-width: 480px) {
+  .container {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.4em;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 0.95em;
+  }
+}
